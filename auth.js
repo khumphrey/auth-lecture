@@ -27,10 +27,10 @@ passport.use(
   })
 );
 
-// Google authentication and login
+// Google authentication and login (notice this is passport.authenticate)
 router.get('/google', passport.authenticate('google', { scope: 'email' }));
 
-// handle the callback after Google has authenticated the user
+// handle the callback after Google has authenticated the user (notice the use of passport.authenticate that takes slightly different variables! AHHHHHH WHYYYYY???!)
 router.get('/verify',
   passport.authenticate('google', { failureRedirect: '/error.html' }),
   function (req, res) {
