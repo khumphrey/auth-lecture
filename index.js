@@ -14,6 +14,8 @@ app.use((req, res, next) => {
 });
 
 // creates req.session and sets up our response to include a cookie, encrypted with our secret
+// by default, the name of the session id on our cookie will be 'connect.sid'
+// (but you don't need to worry about that - express-session has got you covered)
 app.use(session({
   secret: 'suNNy b3ach3s',
   resave: false,
