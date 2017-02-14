@@ -8,7 +8,9 @@ app.listen(8080, () => console.log('I can hear you on port 8080'))
 
 app.use((req, res, next) => {
   console.log('=========================================')
-  console.log('Before session middleware', req.session, req.user && req.user.email);
+  console.log('Before session middleware');
+  console.log('req.session: ', req.session);
+  console.log('req.user.email', req.user && req.user.email);
   console.log('-----------------------------------------');
   next();
 });
@@ -23,7 +25,9 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  console.log('After session middleware', Object.keys(req.session), req.user && req.user.email);
+  console.log('After session middleware');
+  console.log('Object.keys(req.session): ', Object.keys(req.session));
+  console.log('req.user.email', req.user && req.user.email);
   console.log('-----------------------------------------');
   next();
 });
@@ -36,7 +40,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-  console.log('After passport.session', Object.keys(req.session), req.user && req.user.email);
+  console.log('After passport.session');
+  console.log('Object.keys(req.session): ', Object.keys(req.session));
+  console.log('req.user.email', req.user && req.user.email);
   console.log('More detail on req.session.cookie: ', Object.keys(req.session.cookie))
   console.log('More detail on req.session.passport', req.session.passport && req.session.passport)
   console.log('=========================================')
