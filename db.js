@@ -1,10 +1,9 @@
-
 const Sequelize = require('sequelize'),
-	databaseURI = 'postgres://localhost:5432/autherLecture';
-	
+  databaseURI = 'postgres://localhost:5432/autherLecture';
+
 const db = new Sequelize(databaseURI, {
-	  logging: false
-	});
+    logging: false
+  });
 
 const User = db.define('user', {
   name: Sequelize.STRING,
@@ -16,9 +15,9 @@ const User = db.define('user', {
   googleId: Sequelize.STRING,
 });
 
-User.sync()
+User.sync();
 
 module.exports = {
-	db,
-	User
+  db,
+  User
 };
