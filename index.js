@@ -49,13 +49,15 @@ app.use((req, res, next) => {
   next();
 });
 
-// if we've serialized the user on our session with an id, we look it up here
+// If we've serialized the user on our session with an id, we look it up here
 // and attach it as 'req.user'
+// This is below that logging above as a reminder that 'passport.session()' uses this -
+// it just needs to be registered; it doesn't matter where we register it
 passport.deserializeUser((id, done) => {
   User.findById(id)
     .then(user => done(null, user))
     .catch(done);
-})
+});
 
 app.use('/auth', require('./auth.js'));
 

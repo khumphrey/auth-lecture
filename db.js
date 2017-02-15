@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize'),
-  databaseURI = 'postgres://localhost:5432/autherLecture';
+const Sequelize = require('sequelize');
+const databaseURI = 'postgres://localhost:5432/autherLecture';
 
 const db = new Sequelize(databaseURI, {
     logging: false
